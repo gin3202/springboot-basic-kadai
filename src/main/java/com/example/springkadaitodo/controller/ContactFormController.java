@@ -14,7 +14,7 @@ import com.example.springkadaitodo.form.ContactForm;
 public class ContactFormController {
 
 	// フォーム表示（フラッシュ属性が無ければ新規インスタンスをセット）
-	@GetMapping("/contact")
+	@GetMapping("/form")
 	public String showForm(Model model) {
 		if (!model.containsAttribute("contactForm")) {
 			model.addAttribute("contactForm", new ContactForm());
@@ -23,7 +23,7 @@ public class ContactFormController {
 	}
 
 	// 確認画面表示（POST：バリデーション実行）
-	@PostMapping("/contact/confirm")
+	@PostMapping("/confirm")
 	public String confirm(
 			@Validated ContactForm contactForm,
 			BindingResult bindingResult,
@@ -45,7 +45,7 @@ public class ContactFormController {
 	}
 
 	// 直接GETで確認画面に来た場合はフォームへ
-	@GetMapping("/contact/confirm")
+	@GetMapping("/confirm")
 	public String confirmGetRedirect() {
 		return "redirect:/contact";
 	}
