@@ -36,7 +36,7 @@ public class ContactFormController {
 			redirectAttributes.addFlashAttribute(
 					"org.springframework.validation.BindingResult.contactForm",
 					bindingResult);
-			return "redirect:/contact";
+			return "redirect:/form";
 		}
 
 		// OKの場合は確認画面へ
@@ -47,6 +47,7 @@ public class ContactFormController {
 	// 直接GETで確認画面に来た場合はフォームへ
 	@GetMapping("/confirm")
 	public String confirmGetRedirect() {
-		return "redirect:/contact";
+		return "redirect:/form";
 	}
 }
+
